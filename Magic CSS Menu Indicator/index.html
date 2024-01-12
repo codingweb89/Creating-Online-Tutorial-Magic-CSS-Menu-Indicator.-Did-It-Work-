@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic CSS Menu Indicator</title>
+</head>
+<body>
+
+<div class="container">
+    <ul>
+        <li class="active"><a href="#">
+            <span class="icon"><i class="fa fa-home fa-lg"></i></span>
+            <span class="text">Home</span>
+        </a></li>
+        <li><a href="#">
+            <span class="icon"><i class="fa fa-user fa-lg"></i></span>
+            <span class="text">User</span>
+        </a></li>
+        <li><a href="#">
+            <span class="icon"><i class="fa fa-circle fa-lg"></i></span>
+            <span class="text">Circle</span>
+        </a></li>
+        <li><a href="#">
+            <span class="icon"><i class="fa fa-cog fa-lg"></i></span>
+            <span class="text">Settings</span>
+        </a></li>
+        <li><a href="#">
+            <span class="icon"><i class="fa fa-comment fa-lg"></i></span>
+            <span class="text">Message</span>
+        </a></li>
+        <div class="indicator"></div>
+    </ul>
+</div>
+
+
+
+<script>
+
+
+const indicator = document.querySelector(".indicator");
+const container = document.querySelector(".container");
+const lis = container.querySelectorAll("ul li");
+
+lis.forEach(li => li.addEventListener("click", e => {
+    indicator.style.left = li.offsetLeft + "px";
+    indicator.style.width = li.offsetWidth + "px";
+
+    document.querySelector(".active").classList.remove("active");
+    li.classList.add("active")
+}))
+
+
+</script>
+
+
+
+</body>
+</html>
